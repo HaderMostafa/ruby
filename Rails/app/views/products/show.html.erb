@@ -1,0 +1,24 @@
+<h1><%=@product.name %></h1>
+<p><%=@product.price %></p>
+<p><%=@product.description %></p>
+<img src=<%= url_for @product.image %> style="width: 150px;">
+<p><%=@product.created_at %></p>
+<p>
+<% @x=@product.admin_id %>
+<%= link_to Admin.find(@x).name, admin_path  %>
+<%= %>
+</p>
+<ul>
+  <li>
+     <%= link_to "Back", products_path  %>
+  </li>
+  <li>
+     <%= link_to "Edit", edit_product_path(@product) %>
+  </li>
+  <li>
+      <%= link_to "Destroy", product_path(@product), data:{
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+      } %>
+    </li>
+</ul
